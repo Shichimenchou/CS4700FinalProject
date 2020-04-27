@@ -6,11 +6,11 @@ using namespace std;
 
 double g(double x)
 {
-	double gx = .5 * x * x + x + 1 - exp(x);
+	double gx = pow(x, 6) - 1;
 	return gx;
 }
 
-double bisection(double a, double b, double tolerance, double ans, int itr)
+double bisection(double a, double b, double tolerance, double ans, int& itr)
 {
 	double ga = g(a);
 	double gb = g(b);
@@ -23,24 +23,24 @@ double bisection(double a, double b, double tolerance, double ans, int itr)
 	}
 	else
 	{
-		if(abs(ga - ans) > abs(gb - ans))
+		if(abs(ans - a) < abs(ans - b))
 		{
-			return bisection(t, b, tolerance, ans, itr);
+			return bisection(a, t, tolerance, ans, itr);
 		}
 		else
 		{
-			return bisection(a, t, tolerance, ans, itr);
+			return bisection(t, b, tolerance, ans, itr);
 		}
 	}
 }
 
 int main()
 {
-	double a = -1;
-	double b = 10;
-	double ans = 0;
+	double a = -1000001;
+	double b = 10000000;
+	double ans = 1;
 	int itr = 0;
-	double tolerance = 0.001;
+	double tolerance = 0.000001;
 
 	time_t start = time(nullptr);	
 	double x = bisection(a, b, tolerance, ans, itr);
