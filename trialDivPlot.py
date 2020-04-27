@@ -9,9 +9,9 @@ print(len(cpp))
 print(len(julia))
 print(len(python))
 
-scatter(t, cpp, label="C++")
-scatter(t, julia, label="Julia")
-scatter(t, python, label="Python")
+plot(t, cpp, label="C++")
+plot(t, julia, label="Julia")
+plot(t, python, label="Python")
 
 legend()
 xlabel("Order (2^x)")
