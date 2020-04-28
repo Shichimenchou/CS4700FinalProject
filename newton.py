@@ -16,7 +16,7 @@ def newtong(xn):
 x = decimal.Decimal(100.0)
 ans = decimal.Decimal(0)
 itr = 0
-tolerance = decimal.Decimal(0.01)
+tolerance = decimal.Decimal(0.001)
 
 start = time.time()
 while(abs(decimal.Decimal(x) - decimal.Decimal(ans)) > decimal.Decimal(tolerance)):
